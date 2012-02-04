@@ -1,0 +1,14 @@
+{
+  "author": "Hector Bavio <hectorbavio@gmail.com>",
+  "name": "nist",
+  "description": "node gist",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
