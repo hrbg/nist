@@ -21,6 +21,20 @@ program
   .option('-c, --config', 'Github account file')
   .parse(process.argv);
 
+nist.findNistrcFile(function (exists) {
+  if(!exists || program.config) {
+    program.prompt('Login or Email: ', function(name){
+      program.password('Password: ', '*', function(pass){
+        process.stdin.destroy();
+        if(program.args.length > 0) nist.readFile(program.args[0])
+      });
+    });
+  } 
+  else {
+    if(program.args.length > 0) nist.readFile(program.args[0])    
+  }
+});
+
 //Search for ~/.nistrc and prompt for Github account if is not found
 // path.exists(nist.nistrcPath, function (exists) {
 //   if(!exists || program.config) {
@@ -34,7 +48,4 @@ program
 //   }
 // });
 
-nist.openNistrcFile(function(exists){
-  
-});
 console.log(program.args)
