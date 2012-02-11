@@ -22,16 +22,19 @@ program
   .parse(process.argv);
 
 //Search for ~/.nistrc and prompt for Github account if is not found
-path.exists(nist.nistrcPath, function (exists) {
-  if(!exists || program.config) {
-    program.prompt('Login or Email: ', function(name){
-      program.password('Password: ', '*', function(pass){
-        process.stdin.destroy();
-        nist.openNistrcFile(JSON.stringify({"login": name, "pass": pass}))
-        if(program.args.length > 0) nist.readFile(program.args[0])
-      });
-    });
-  }
-});
+// path.exists(nist.nistrcPath, function (exists) {
+//   if(!exists || program.config) {
+//     program.prompt('Login or Email: ', function(name){
+//       program.password('Password: ', '*', function(pass){
+//         process.stdin.destroy();
+//         nist.openNistrcFile(JSON.stringify({"login": name, "pass": pass}))
+//         if(program.args.length > 0) nist.readFile(program.args[0])
+//       });
+//     });
+//   }
+// });
 
+nist.openNistrcFile(function(exists){
+  
+});
 console.log(program.args)
