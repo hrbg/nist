@@ -23,9 +23,11 @@ program
 
 nist.findNistrcFile(function (exists) {
   if(!exists || program.config) {
-    program.prompt('Login or Email: ', function(name){
+    program.prompt('Login or Email: ', function(login){
       program.password('Password: ', '*', function(pass){
         process.stdin.destroy();
+        nist.saveNistrcFile(JSON.stringify({"login": login, "pass": pass}));
+
         if(program.args.length > 0) nist.readFile(program.args[0])
       });
     });
