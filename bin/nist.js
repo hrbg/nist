@@ -27,7 +27,6 @@ nist.findNistrcFile(function (exists) {
       program.password('Password: ', '*', function(pass){
         process.stdin.destroy();
         nist.saveNistrcFile(JSON.stringify({"login": login, "pass": pass}));
-
         if(program.args.length > 0) nist.readFile(program.args[0])
       });
     });
