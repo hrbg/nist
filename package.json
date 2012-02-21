@@ -3,6 +3,7 @@
   "name": "nist",
   "description": "node gist cli",
   "version": "0.0.1",
+  "preferGlobal": true,
   "repository": {
     "url": ""
   },
